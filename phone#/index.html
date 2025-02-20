@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Number Validation</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        input { padding: 10px; font-size: 16px; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+        .error { color: red; margin-top: 10px; display: none; }
+    </style>
+</head>
+<body>
+
+    <h2>Enter Your Phone Number</h2>
+    <input type="text" id="phoneNumber" placeholder="Enter phone number">
+    <button onclick="validatePhone()">Submit</button>
+    <p class="error" id="errorMessage">❌ Invalid phone number format!</p>
+
+    <script>
+        function validatePhone() {
+            const phoneInput = document.getElementById("phoneNumber").value;
+            const regex = /^(\d{3})[-.\s]?(\d{3})[-.\s]?(\d{4})$/;  // Supports 123-456-7890, 123.456.7890, 123 456 7890
+            
+            if (regex.test(phoneInput)) {
+                alert("✅ Phone number is valid!");
+            } else {
+                document.getElementById("errorMessage").style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>
